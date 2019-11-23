@@ -1,5 +1,7 @@
 <?php
 
+namespace Model;
+
 class Lutador{
 	private $id=null;
 	private $nome;

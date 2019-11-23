@@ -1,0 +1,18 @@
+{
+    "name": "max/uec",
+    "description": "CRUD Simples",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Shumax",
+            "email": "maxcastro.mv@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "UEC\\": "src\\"
+        }
+    },
+     "require": {}
+}

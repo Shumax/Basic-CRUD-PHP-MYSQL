@@ -1,13 +1,20 @@
 <?php
 
-class Acoes extends Conexao{
+namespace Controller;
 
-	public function apresentar($tabela, $p){
-		return $this->listarDados($tabela,$p);		
+use DAO\Manipula;
+
+
+class Acoes
+{
+	public function apresentar($tabela, $p):array{
+		$e = (new Manipula)->listarDados($tabela,$p);		
+		return $e;
 	}
 
-	public function status($tabela, $where, $campos){
-		return $this->listarDados($tabela,$where,$campos);
+	public function status($tabela, $where, $campos):array{
+		$e = (new Manipula)->listarDados($tabela,$where,$campos);
+		return $e;
 	}
 	
 	public function ganharLuta($tabela){
