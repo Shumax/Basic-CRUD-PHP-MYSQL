@@ -9,7 +9,8 @@ define('DB_BANCO','uec');
 define('qdo','');
 
 class Conexao{
-	public function conectaBanco(){
+	public function conectaBanco()
+	{
 		$conecta = mysqli_connect(
 			DB_SERVER, 
 			DB_USERNAME, 

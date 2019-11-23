@@ -4,7 +4,8 @@ namespace DAO;
 
 class Manipula extends Conexao
 {
-	public function insereDados($tabela, $vetordados){
+	public function insereDados($tabela, $vetordados): string
+	{
 		foreach($vetordados as $i => $valor){
 			$indices[] = $i;
 			$insertvalores[] = '\''.$valor.'\'';
@@ -20,7 +21,8 @@ class Manipula extends Conexao
 		*/
 	}
 	
-	public function listarDados($tabela, $qdo = null, $campos = '*'){
+	public function listarDados($tabela, $qdo = null, $campos = '*'): array
+	{
 		$qdo = ($qdo)?"WHERE {$qdo}":null;
 		$mysql = "SELECT {$campos} FROM {$tabela} {$qdo}";
 		$listar = $this->executar($mysql);
@@ -38,7 +40,8 @@ class Manipula extends Conexao
 		}
 	}
 
-	public function alteraDados($tabela, $vetordados, $where = null){
+	public function alteraDados($tabela, $vetordados, $where = null): string 
+	{
 		$where = ($where)?"WHERE {$where}": null;
 		//importante que a where receba alguma valor, senão ele vai sobescrever todos os campos 
 		foreach($vetordados as $i => $valor){
@@ -49,13 +52,15 @@ class Manipula extends Conexao
 		return $this->executar($mysql);
 	}
 
-	public function apagarDados($tabela, $where=null){
+	public function apagarDados($tabela, $where=null): string 
+	{
 		$where = ($where)?"WHERE {$where}":null;
 		$mysql = "DELETE FROM {$tabela} {$where}";
 		return $this->executar($mysql);
 	}
 	
-	public function executar($mysql){
+	public function executar($mysql)  
+	{
 		$link = $this->conectaBanco();
 		$result = mysqli_query($link, $mysql) or die (mysqli_error($link));
 		return $result;
